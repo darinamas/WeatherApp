@@ -16,6 +16,7 @@ class Settings {
     var city: String? 
     
     var dailyWeather: [Daily]?
+    var favoriteCities: [String] = []
     
     private init() {
     }

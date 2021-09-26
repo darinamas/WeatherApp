@@ -101,14 +101,39 @@
                     <view key="view" contentMode="scaleToFill" id="RPz-ok-1WK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fIi-eF-bdv">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellFav" id="QTL-bs-Wbc">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QTL-bs-Wbc" id="Vmh-4Z-1l9" customClass="FavoritesTableViewCell" customModule="WeatherApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="TmU-iI-bB7"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="fIi-eF-bdv" firstAttribute="leading" secondItem="TmU-iI-bB7" secondAttribute="leading" id="5Yk-qg-Nk6"/>
+                            <constraint firstItem="fIi-eF-bdv" firstAttribute="bottom" secondItem="TmU-iI-bB7" secondAttribute="bottom" id="Kkq-tt-F3v"/>
+                            <constraint firstAttribute="trailing" secondItem="fIi-eF-bdv" secondAttribute="trailing" id="WTp-WI-WQh"/>
+                            <constraint firstItem="fIi-eF-bdv" firstAttribute="top" secondItem="TmU-iI-bB7" secondAttribute="top" id="lPG-2E-c9a"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nS0-ZD-39u"/>
+                    <connections>
+                        <outlet property="tableView" destination="fIi-eF-bdv" id="riz-gC-hFd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpb-Z2-iEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="1430"/>
+            <point key="canvasLocation" x="1115.9420289855072" y="1429.6875"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="aBw-x6-UvX">
