@@ -148,7 +148,6 @@ final class WeatherViewController: UIViewController {
             mainLabel.widthAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.7),
             mainLabel.bottomAnchor.constraint(equalTo: topView.bottomAnchor),
             
-            
             addToFavorites.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 40),
             addToFavorites.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 10),
             addToFavorites.widthAnchor.constraint(equalTo: bottomView.widthAnchor, multiplier: 0.7),
@@ -215,6 +214,11 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         cell.humidityLabel.frame = CGRect(x: tableView.frame.maxX/2, y: 20, width: 50, height: 50)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return tableView.frame.size.height/9
     }
     
     //MARK: Set Table View
