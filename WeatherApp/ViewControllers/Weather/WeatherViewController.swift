@@ -189,7 +189,9 @@ final class WeatherViewController: UIViewController {
     //MARK: User tapped on the fav button. TO DO
     
     @objc func favButtonAction() {
-        print("User tapped on the button")
+        Settings.shared.favoriteCities.append(cityLabel.text!)
+        addToFavorites.isEnabled = false
+        addToFavorites.setTitleColor(.clear, for: .disabled)
     }
     
 }
