@@ -28,9 +28,23 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellFav", for: indexPath) // as! FavoritesTableViewCell
-        cell.textLabel?.text = Settings.shared.favoriteCities[indexPath.row]
+        cell.textLabel?.text = Settings.shared.favoriteCities[indexPath.row].city
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Settings.shared.lat = Settings.shared.favoriteCities[indexPath.row].lat
+        Settings.shared.lon = Settings.shared.favoriteCities[indexPath.row].lon
+        Settings.shared.city = Settings.shared.favoriteCities[indexPath.row].city
+        showWeatherViewController()
+    }
+    
+    //MARK: Show Wearher view controller
+    
+    private func showWeatherViewController() {
+        let _ = UIStoryboard(name: "Main", bundle: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
+        let _ = UINavigationController(rootViewController: vc)
+        show(vc, sender: nil)
+    }
 }
