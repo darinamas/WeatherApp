@@ -9,6 +9,8 @@ import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
     
+    var indexPath: IndexPath?
+    
     var weekdayLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 50))
         label.textColor = .white
@@ -50,5 +52,10 @@ class WeatherTableViewCell: UITableViewCell {
         addSubview(humidityLabel)
         addSubview(tempLabel)
         addSubview(weatherImage)
+    }
+    
+    func setCellUI() {
+        self.backgroundColor = .black
+        self.selectionStyle = .none
     }
 }
