@@ -21,7 +21,7 @@ final class WeatherViewController: UIViewController {
     private lazy var cityLabel = UILabel()
     private lazy var tempLabel = UILabel()
     private lazy var mainLabel = UILabel() // cloudy, sunny
-    private lazy var addToFavorites = AddToFavoritesButton() //UIButton()
+    private lazy var addToFavorites = AddToFavoritesButton() 
     
     private lazy var city = Settings.shared.city
     
@@ -184,9 +184,8 @@ final class WeatherViewController: UIViewController {
     //MARK: User tapped on the fav button. TO DO
 
     @objc func favButtonAction() {
-        Settings.shared.favoriteCities.append(FavCity.init(city: Settings.shared.city!, lat:Settings.shared.lat, lon: Settings.shared.lon))
-        addToFavorites.isEnabled = false
-        addToFavorites.setTitleColor(.clear, for: .disabled)
+        presenter.appendCityToFavCity()
+        addToFavorites.disableButton()
 
         //Badge update on the tab bar item.
         if let tabVC = self.tabBarController as? TabBarViewController {
@@ -199,7 +198,6 @@ final class WeatherViewController: UIViewController {
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return presenter.numbeOfRows() 
     }
     

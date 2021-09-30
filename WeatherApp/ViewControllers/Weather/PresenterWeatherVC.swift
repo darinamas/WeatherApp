@@ -84,4 +84,8 @@ class PresenterWeatheVC {
         let temp: String = String(Int(round((Settings.shared.dailyWeather![row].temp?.day!)!))) + " " + " °" + "C"
         return temp
     }
+    
+    func appendCityToFavCity() {
+        Settings.shared.favoriteCities.append(FavCity.init(city: Settings.shared.city!, lat:Settings.shared.lat, lon: Settings.shared.lon))
+    }
 }

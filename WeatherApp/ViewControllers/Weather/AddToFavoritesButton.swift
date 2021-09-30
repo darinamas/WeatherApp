@@ -26,5 +26,10 @@ class AddToFavoritesButton: UIButton {
         self.contentVerticalAlignment = UIControl.ContentVerticalAlignment.top
     
     }
+    
+    func disableButton() {
+        self.isEnabled = false
+        self.setTitleColor(.clear, for: .disabled)
+    }
 
 }
