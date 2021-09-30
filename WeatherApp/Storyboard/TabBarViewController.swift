@@ -8,10 +8,10 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
     
@@ -21,9 +21,10 @@ class TabBarViewController: UITabBarController {
         
     }
     
-  //MARK: Assign number of items in the Favorite list to the badge on the fav tab bar.
+    //MARK: Assign number of items in the Favorite list to the badge on the fav tab bar.
     
     func itemBadgeDisplay() {
-        self.tabBar.items![2].badgeValue = "\(Settings.shared.favoriteCities.count)"
+        let countFavCities = String(Settings.shared.favoriteCities.count)
+        self.tabBar.items![2].badgeValue = countFavCities
     }
 }

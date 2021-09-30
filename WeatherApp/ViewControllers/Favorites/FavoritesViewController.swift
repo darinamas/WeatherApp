@@ -41,22 +41,20 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Settings.shared.favoriteCities.count
+        return presenter.numberOfCities()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellFav", for: indexPath) as! FavoritesTableViewCell
-        cell.textLabel?.text = Settings.shared.favoriteCities[indexPath.row].city
-        cell.backgroundColor = .black
-        cell.textLabel?.textColor = .white
-        cell.detailTextLabel?.textColor = .white
+        cell.indexPathRow = indexPath.row
+        cell.setUI()
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Settings.shared.lat = Settings.shared.favoriteCities[indexPath.row].lat
-        Settings.shared.lon = Settings.shared.favoriteCities[indexPath.row].lon
-        Settings.shared.city = Settings.shared.favoriteCities[indexPath.row].city
+        presenter.transferData(indexPath: indexPath)
         showWeatherViewController()
     }
+    
 }
