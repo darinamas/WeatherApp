@@ -192,6 +192,11 @@ final class WeatherViewController: UIViewController {
         Settings.shared.favoriteCities.append(FavCity.init(city: Settings.shared.city!, lat:Settings.shared.lat, lon: Settings.shared.lon))
         addToFavorites.isEnabled = false
         addToFavorites.setTitleColor(.clear, for: .disabled)
+       
+//Badge update on the tab bar item.
+        if let tabVC = self.tabBarController as? TabBarViewController {
+            tabVC.itemBadgeDisplay()
+                }
     }
     
 }

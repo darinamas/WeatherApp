@@ -16,7 +16,6 @@ class FavoritesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         presenter.view = self
-      //  tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: "cellFav")
         setUI()
     }
     
