@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoritesViewController: UIViewController {
     var presenter = PresenterFavoritesVC()
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,6 +16,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         presenter.view = self
+      //  tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: "cellFav")
         setUI()
     }
     
@@ -28,12 +29,24 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.backgroundColor = .black
     }
     
+    //MARK: Show Wearher view controller
+    
+    private func showWeatherViewController() {
+        let _ = UIStoryboard(name: "Main", bundle: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
+        let _ = UINavigationController(rootViewController: vc)
+        show(vc, sender: nil)
+    }
+}
+
+extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Settings.shared.favoriteCities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellFav", for: indexPath) // as! FavoritesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellFav", for: indexPath) as! FavoritesTableViewCell
         cell.textLabel?.text = Settings.shared.favoriteCities[indexPath.row].city
         cell.backgroundColor = .black
         cell.textLabel?.textColor = .white
@@ -46,14 +59,5 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         Settings.shared.lon = Settings.shared.favoriteCities[indexPath.row].lon
         Settings.shared.city = Settings.shared.favoriteCities[indexPath.row].city
         showWeatherViewController()
-    }
-    
-    //MARK: Show Wearher view controller
-    
-    private func showWeatherViewController() {
-        let _ = UIStoryboard(name: "Main", bundle: nil)
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
-        let _ = UINavigationController(rootViewController: vc)
-        show(vc, sender: nil)
     }
 }
