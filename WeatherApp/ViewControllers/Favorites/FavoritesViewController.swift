@@ -16,10 +16,16 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         presenter.view = self
+        setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+    
+    func setUI() {
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .black
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,6 +35,9 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellFav", for: indexPath) // as! FavoritesTableViewCell
         cell.textLabel?.text = Settings.shared.favoriteCities[indexPath.row].city
+        cell.backgroundColor = .black
+        cell.textLabel?.textColor = .white
+        cell.detailTextLabel?.textColor = .white
         return cell
     }
     
