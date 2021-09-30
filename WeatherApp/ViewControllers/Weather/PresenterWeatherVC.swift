@@ -39,6 +39,15 @@ class PresenterWeatheVC {
         inLabel.text = main
     }
     
+    func whatMain(indexPath: IndexPath) -> Int {
+        let main = Settings.shared.dailyWeather![indexPath.row].weather![0].main
+        if main == "Cloud" {
+            return 1
+        } else {
+            return 2
+        }
+    }
+    
     //MARK: Fetch data from API
     
     func fetchWeather(completion: @escaping ((WeatherData)) -> ()) {
@@ -83,5 +92,9 @@ class PresenterWeatheVC {
         let row = indexPath.row
         let temp: String = String(Int(round((Settings.shared.dailyWeather![row].temp?.day!)!))) + " " + " °" + "C"
         return temp
+    }
+    
+    func appendCityToFavCity() {
+        Settings.shared.favoriteCities.append(FavCity.init(city: Settings.shared.city!, lat:Settings.shared.lat, lon: Settings.shared.lon))
     }
 }

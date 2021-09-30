@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="cbY-JQ-Gws">
             <objects>
-                <tabBarController id="Cpg-Xb-Q2M" sceneMemberID="viewController">
+                <tabBarController id="Cpg-Xb-Q2M" customClass="TabBarViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BtQ-t1-6R3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,7 +81,7 @@
         <scene sceneID="OCP-0f-XmB">
             <objects>
                 <navigationController id="t44-aO-m3t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" badgeValue="1" selectedImage="star" id="Rkt-Pp-Csa"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" selectedImage="star" id="Rkt-Pp-Csa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h16-fv-TUQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

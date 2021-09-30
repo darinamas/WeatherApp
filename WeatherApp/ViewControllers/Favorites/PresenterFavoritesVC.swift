@@ -7,19 +7,18 @@
 
 import UIKit
 
-class PresenterFavoritesVC: UITableViewCell {
+class PresenterFavoritesVC {
 
     weak var view: FavoritesViewController?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func numberOfCities() -> Int {
+        Settings.shared.favoriteCities.count
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func transferData(indexPath: IndexPath) {
+        Settings.shared.lat = Settings.shared.favoriteCities[indexPath.row].lat
+        Settings.shared.lon = Settings.shared.favoriteCities[indexPath.row].lon
+        Settings.shared.city = Settings.shared.favoriteCities[indexPath.row].city
     }
 
 }

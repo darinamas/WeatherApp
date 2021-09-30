@@ -8,6 +8,8 @@
 import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
+    var main: Int?
+    var indexPath: IndexPath?
     
     var weekdayLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 50))
@@ -22,12 +24,21 @@ class WeatherTableViewCell: UITableViewCell {
     }()
     
     var weatherImage: UIImageView = {
-        let image = UIImage(named: "cloud.rain")
-        var imageView = UIImageView(frame: CGRect(x: 130, y: 30, width: 30, height: 30)) //UIImageView(image: image!)
-        imageView.image = image
-        
+       // let image =  UIImage(named: "cloud.rain")
+        var imageView = UIImageView(frame: CGRect(x: 130, y: 30, width: 30, height: 30))
+     //   imageView.image = image
         return imageView
     }()
+    
+    func setWeatherImage() -> String {
+        if main == 1 {
+            return "cloud.rain"
+        } else {
+            return "sun.max"
+        }
+    }
+    
+    
     
     var tempLabel: UILabel = {
         let label = UILabel()
@@ -39,16 +50,28 @@ class WeatherTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview()
+        let a = setWeatherImage()
+        weatherImage.image = UIImage(named: a)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func addSubview() {
         addSubview(weekdayLabel)
         addSubview(humidityLabel)
         addSubview(tempLabel)
         addSubview(weatherImage)
+    }
+    
+    func setCellUI() {
+        self.backgroundColor = .black
+        self.selectionStyle = .none
+    }
+    
+    func textForLabel(label: UILabel, text: String) {
+        label.text = text
     }
 }

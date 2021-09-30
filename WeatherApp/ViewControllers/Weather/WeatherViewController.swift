@@ -21,7 +21,7 @@ final class WeatherViewController: UIViewController {
     private lazy var cityLabel = UILabel()
     private lazy var tempLabel = UILabel()
     private lazy var mainLabel = UILabel() // cloudy, sunny
-    private lazy var addToFavorites = UIButton()
+    private lazy var addToFavorites = AddToFavoritesButton()
     
     private lazy var city = Settings.shared.city
     
@@ -36,7 +36,6 @@ final class WeatherViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
-    
     
     //MARK: Fetch weather and show results
     
@@ -178,20 +177,19 @@ final class WeatherViewController: UIViewController {
     }
     
     private func setupButtonAddToFav() {
-        addToFavorites.setTitle("Add to favorites", for: .normal)
-        addToFavorites.setTitleColor(UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1.0), for: .normal)
-        addToFavorites.titleLabel!.font = UIFont(name: "System Semibold" , size: 25)
-        addToFavorites.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
-        addToFavorites.contentVerticalAlignment = UIControl.ContentVerticalAlignment.top
         addToFavorites.addTarget(self, action: #selector(self.favButtonAction), for: UIControl.Event.touchUpInside)
     }
     
     //MARK: User tapped on the fav button. TO DO
-    
+
     @objc func favButtonAction() {
-        Settings.shared.favoriteCities.append(FavCity.init(city: Settings.shared.city!, lat:Settings.shared.lat, lon: Settings.shared.lon))
-        addToFavorites.isEnabled = false
-        addToFavorites.setTitleColor(.clear, for: .disabled)
+        presenter.appendCityToFavCity()
+        addToFavorites.disableButton()
+
+        //Badge update on the tab bar item.
+        if let tabVC = self.tabBarController as? TabBarViewController {
+            tabVC.itemBadgeDisplay()
+        }
     }
     
 }
@@ -199,21 +197,19 @@ final class WeatherViewController: UIViewController {
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return presenter.numbeOfRows() 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherTableViewCell
-        cell.selectionStyle = .none
-        cell.weekdayLabel.text = presenter.showDay(indexPath: indexPath)
-        cell.humidityLabel.text = presenter.showHumidity(indexPath: indexPath)
-        cell.tempLabel.text = presenter.showDailyTemp(indexPath: indexPath)
-        cell.backgroundColor = .black
+        cell.setCellUI()
+        cell.textForLabel(label: cell.weekdayLabel, text: presenter.showDay(indexPath: indexPath))
+        cell.textForLabel(label: cell.humidityLabel, text: presenter.showHumidity(indexPath: indexPath))
+        cell.textForLabel(label: cell.tempLabel, text: presenter.showDailyTemp(indexPath: indexPath))
         cell.tempLabel.frame = CGRect(x: tableView.frame.maxX - tableView.frame.maxX/6, y: 20, width: 50, height: 50)
-        
         cell.humidityLabel.frame = CGRect(x: tableView.frame.maxX/2, y: 20, width: 50, height: 50)
+        cell.main = presenter.whatMain(indexPath: indexPath)
         
         return cell
     }
