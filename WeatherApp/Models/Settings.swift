@@ -16,8 +16,14 @@ class Settings {
     var city: String? 
     
     var dailyWeather: [Daily]?
-    var favoriteCities: [String] = []
+    var favoriteCities: [FavCity] = []
     
     private init() {
     }
+}
+
+struct FavCity {
+    let city: String
+    let lat: Double
+    let lon: Double
 }
