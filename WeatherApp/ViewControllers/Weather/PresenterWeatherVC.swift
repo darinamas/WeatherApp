@@ -39,6 +39,15 @@ class PresenterWeatheVC {
         inLabel.text = main
     }
     
+    func whatMain(indexPath: IndexPath) -> Int {
+        let main = Settings.shared.dailyWeather![indexPath.row].weather![0].main
+        if main == "Cloud" {
+            return 1
+        } else {
+            return 2
+        }
+    }
+    
     //MARK: Fetch data from API
     
     func fetchWeather(completion: @escaping ((WeatherData)) -> ()) {

@@ -21,7 +21,7 @@ final class WeatherViewController: UIViewController {
     private lazy var cityLabel = UILabel()
     private lazy var tempLabel = UILabel()
     private lazy var mainLabel = UILabel() // cloudy, sunny
-    private lazy var addToFavorites = AddToFavoritesButton() 
+    private lazy var addToFavorites = AddToFavoritesButton()
     
     private lazy var city = Settings.shared.city
     
@@ -36,7 +36,6 @@ final class WeatherViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
-    
     
     //MARK: Fetch weather and show results
     
@@ -205,12 +204,13 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherTableViewCell
         cell.setCellUI()
-        cell.weekdayLabel.text = presenter.showDay(indexPath: indexPath)
-        cell.humidityLabel.text = presenter.showHumidity(indexPath: indexPath)
-        cell.tempLabel.text = presenter.showDailyTemp(indexPath: indexPath)
+        cell.textForLabel(label: cell.weekdayLabel, text: presenter.showDay(indexPath: indexPath))
+        cell.textForLabel(label: cell.humidityLabel, text: presenter.showHumidity(indexPath: indexPath))
+        cell.textForLabel(label: cell.tempLabel, text: presenter.showDailyTemp(indexPath: indexPath))
         cell.tempLabel.frame = CGRect(x: tableView.frame.maxX - tableView.frame.maxX/6, y: 20, width: 50, height: 50)
         cell.humidityLabel.frame = CGRect(x: tableView.frame.maxX/2, y: 20, width: 50, height: 50)
-
+        cell.main = presenter.whatMain(indexPath: indexPath)
+        
         return cell
     }
     
