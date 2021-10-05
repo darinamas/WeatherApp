@@ -22,22 +22,22 @@ class PresenterFavoritesVC {
         Settings.shared.city = Settings.shared.favoriteCities[indexPath.row].city
     }
 
-    func fetchCoreData() {
-        if Settings.shared.firstLoad == true {
-            Settings.shared.firstLoad = false
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavCityCoreData")
-            do {
-                let results:NSArray = try context.fetch(request) as NSArray
-                for result in results {
-                    let favCity = result as! FavCityCoreData
-                    Settings.shared.favoriteCities.append(favCity) //.append(favCity)
-                    print(Settings.shared.favoriteCities)
-                }
-            } catch  {
-                print("Fetch error")
-            }
-        }
-    }
+//    func fetchCoreData() {
+//        if Settings.shared.firstLoad == true {
+//            Settings.shared.firstLoad = false
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavCityCoreData")
+//            do {
+//                let results:NSArray = try context.fetch(request) as NSArray
+//                for result in results {
+//                    let favCity = result as! FavCityCoreData
+//                    Settings.shared.favoriteCities.append(favCity) //.append(favCity)
+//                    print(Settings.shared.favoriteCities)
+//                }
+//            } catch  {
+//                print("Fetch error")
+//            }
+//        }
+//    }
 }

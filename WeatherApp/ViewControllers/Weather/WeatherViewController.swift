@@ -29,11 +29,13 @@ final class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+    
         setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchWeather()
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
