@@ -25,6 +25,8 @@
 		448EEAD826EE709A00B6E0B7 /* PresenterSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448EEAD726EE709A00B6E0B7 /* PresenterSearchViewController.swift */; };
 		448EEADC26EF643500B6E0B7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448EEADB26EF643500B6E0B7 /* SearchViewController.swift */; };
 		448EEADE26EF751100B6E0B7 /* PresenterMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448EEADD26EF751100B6E0B7 /* PresenterMapVC.swift */; };
+		44A83C57270C6959000D29B1 /* FavCityCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A83C55270C6959000D29B1 /* FavCityCoreData+CoreDataClass.swift */; };
+		44A83C58270C6959000D29B1 /* FavCityCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A83C56270C6959000D29B1 /* FavCityCoreData+CoreDataProperties.swift */; };
 		44D8AEB42700AAA80051F70A /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8AEB32700AAA80051F70A /* FavoritesTableViewCell.swift */; };
 		44D8AEB62700AD8C0051F70A /* PresenterFavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8AEB52700AD8C0051F70A /* PresenterFavoritesVC.swift */; };
 		44D8AEE32705E5C50051F70A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8AEE22705E5C50051F70A /* TabBarViewController.swift */; };
@@ -52,6 +54,8 @@
 		448EEAD726EE709A00B6E0B7 /* PresenterSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterSearchViewController.swift; sourceTree = "<group>"; };
 		448EEADB26EF643500B6E0B7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		448EEADD26EF751100B6E0B7 /* PresenterMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterMapVC.swift; sourceTree = "<group>"; };
+		44A83C55270C6959000D29B1 /* FavCityCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FavCityCoreData+CoreDataClass.swift"; path = "WeatherApp/Models/FavCityCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		44A83C56270C6959000D29B1 /* FavCityCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FavCityCoreData+CoreDataProperties.swift"; path = "WeatherApp/Models/FavCityCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		44D8AEB32700AAA80051F70A /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		44D8AEB52700AD8C0051F70A /* PresenterFavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterFavoritesVC.swift; sourceTree = "<group>"; };
 		44D8AEE22705E5C50051F70A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		448EEA6D26EA423100B6E0B7 = {
 			isa = PBXGroup;
 			children = (
+				44A83C55270C6959000D29B1 /* FavCityCoreData+CoreDataClass.swift */,
+				44A83C56270C6959000D29B1 /* FavCityCoreData+CoreDataProperties.swift */,
 				448EEA7826EA423100B6E0B7 /* WeatherApp */,
 				448EEA7726EA423100B6E0B7 /* Products */,
 			);
@@ -285,6 +291,7 @@
 				448EEA9A26EA480D00B6E0B7 /* WeatherViewController.swift in Sources */,
 				448EEAD826EE709A00B6E0B7 /* PresenterSearchViewController.swift in Sources */,
 				448EEAA726ECB2CB00B6E0B7 /* LocationService.swift in Sources */,
+				44A83C58270C6959000D29B1 /* FavCityCoreData+CoreDataProperties.swift in Sources */,
 				448EEA9D26EBB68700B6E0B7 /* Settings.swift in Sources */,
 				448EEADE26EF751100B6E0B7 /* PresenterMapVC.swift in Sources */,
 				44D8AEB42700AAA80051F70A /* FavoritesTableViewCell.swift in Sources */,
@@ -292,6 +299,7 @@
 				448EEA9426EA45E400B6E0B7 /* MapViewController.swift in Sources */,
 				44D8AEB62700AD8C0051F70A /* PresenterFavoritesVC.swift in Sources */,
 				448EEA7C26EA423100B6E0B7 /* SceneDelegate.swift in Sources */,
+				44A83C57270C6959000D29B1 /* FavCityCoreData+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
