@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoritesViewController: UIViewController {
     var presenter = PresenterFavoritesVC()
+   
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -16,8 +18,12 @@ class FavoritesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         presenter.view = self
+       // presenter.fetchCoreData()
         setUI()
     }
+    
+
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()

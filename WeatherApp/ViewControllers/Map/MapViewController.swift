@@ -21,6 +21,8 @@ class MapViewController: UIViewController {
         getUserLocation()
         setLongTap()
         self.navigationController?.isNavigationBarHidden = true
+        presenter.fetchCoreData()
+        print(Settings.shared.favoriteCities)
         
     }
     

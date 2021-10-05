@@ -38,8 +38,6 @@ class WeatherTableViewCell: UITableViewCell {
         }
     }
     
-    
-    
     var tempLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white

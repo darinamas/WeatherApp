@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 final class WeatherViewController: UIViewController {
     
@@ -28,11 +29,13 @@ final class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+    
         setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchWeather()
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
@@ -180,7 +183,7 @@ final class WeatherViewController: UIViewController {
         addToFavorites.addTarget(self, action: #selector(self.favButtonAction), for: UIControl.Event.touchUpInside)
     }
     
-    //MARK: User tapped on the fav button. TO DO
+    //MARK: User tapped on the fav button.
 
     @objc func favButtonAction() {
         presenter.appendCityToFavCity()
