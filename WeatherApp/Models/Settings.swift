@@ -17,7 +17,7 @@ class Settings {
     
     var dailyWeather: [Daily]?
     var favoriteCities: [FavCityCoreData] = []
-    
+    var firstLoad = true
     private init() {
     }
 }
