@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 final class WeatherViewController: UIViewController {
     
@@ -180,10 +181,27 @@ final class WeatherViewController: UIViewController {
         addToFavorites.addTarget(self, action: #selector(self.favButtonAction), for: UIControl.Event.touchUpInside)
     }
     
-    //MARK: User tapped on the fav button. TO DO
+    //MARK: User tapped on the fav button.
 
     @objc func favButtonAction() {
         presenter.appendCityToFavCity()
+        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "FavCityCoreData", in: context)
+//        let newNote = FavCityCoreData(entity: entity!, insertInto: context)
+//        newNote.city = Settings.shared.city!
+//        newNote.lon = String(Settings.shared.lon)
+//        newNote.lat = String(Settings.shared.lat)
+//
+//        do {
+//            try context.save()
+//            Settings.shared.favoriteCities.append(newNote)
+//            print(Settings.shared.favoriteCities)
+//        } catch  {
+//            print("Error")
+//        }
+        
         addToFavorites.disableButton()
 
         //Badge update on the tab bar item.
